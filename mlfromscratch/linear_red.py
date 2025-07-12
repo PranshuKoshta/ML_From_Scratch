@@ -38,12 +38,12 @@ if __name__ == "__main__" :
     x,y = datasets.make_regression(n_samples=100, n_features=1, noise=20, random_state=123)
     x_train,x_test,y_train,y_test = train_test_split(x,y, test_size=0.2, random_state=123)
 
-    lin_reg = linearRegression(lr=0.01)
+    lin_reg = linearRegression(lr=0.01,epoch=1000)
     lin_reg.fit(x_train,y_train)
 
     predicted = lin_reg.predict(x_test)
 
-    mse = np.mean(np.sum(predicted - y_test)**2)
+    mse = np.mean((predicted - y_test)**2)
 
     print(mse)
 
